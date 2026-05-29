@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOBILE MONSTERS | BEAST FLAGSHIP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#410006",
+                    "on-tertiary-container": "#2a292c",
+                    "on-secondary-fixed": "#002022",
+                    "inverse-surface": "#e2e2e2",
+                    "on-surface-variant": "#e9bcb9",
+                    "on-secondary-fixed-variant": "#004f54",
+                    "surface-container-highest": "#333535",
+                    "on-primary": "#68000e",
+                    "on-primary-fixed-variant": "#930019",
+                    "primary-fixed": "#ffdad8",
+                    "on-primary-container": "#5c000b",
+                    "surface": "#121414",
+                    "surface-bright": "#37393a",
+                    "on-secondary": "#00363a",
+                    "tertiary-container": "#929093",
+                    "on-tertiary": "#303032",
+                    "tertiary-fixed-dim": "#c8c6c8",
+                    "primary-fixed-dim": "#ffb3af",
+                    "surface-tint": "#ffb3af",
+                    "on-secondary-container": "#00686f",
+                    "error": "#ffb4ab",
+                    "surface-container-lowest": "#0c0f0f",
+                    "outline": "#b08784",
+                    "secondary-container": "#00eefc",
+                    "primary": "#ffb3af",
+                    "secondary": "#d3fbff",
+                    "inverse-primary": "#bf0024",
+                    "on-background": "#e2e2e2",
+                    "tertiary": "#c8c6c8",
+                    "on-tertiary-fixed-variant": "#474649",
+                    "background": "#121414",
+                    "on-surface": "#e2e2e2",
+                    "surface-variant": "#333535",
+                    "tertiary-fixed": "#e5e1e4",
+                    "surface-container": "#1e2020",
+                    "surface-container-high": "#282a2b",
+                    "on-error": "#690005",
+                    "surface-dim": "#121414",
+                    "primary-container": "#ff5357",
+                    "secondary-fixed-dim": "#00dbe9",
+                    "on-tertiary-fixed": "#1b1b1d",
+                    "outline-variant": "#5f3e3d",
+                    "error-container": "#93000a",
+                    "surface-container-low": "#1a1c1c",
+                    "secondary-fixed": "#7df4ff",
+                    "on-error-container": "#ffdad6",
+                    "inverse-on-surface": "#2f3131"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "stack-sm": "8px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px",
+                    "margin-desktop": "40px",
+                    "margin-mobile": "20px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "display-xl": ["Montserrat"],
+                    "headline-lg": ["Montserrat"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "headline-md": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .beast-glow {
+            box-shadow: 0 0 20px rgba(255, 83, 87, 0.3);
+        }
+        .hard-shadow {
+            box-shadow: 8px 8px 0px #000000;
+        }
+        .glass-panel {
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .scanline {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff5357, transparent);
+            width: 100%;
+        }
+        .perspective-view {
+            perspective: 1000px;
+        }
+        .rotate-beast {
+            transform: rotateY(-15deg) rotateX(10deg);
+            transition: transform 0.5s ease;
+        }
+        .rotate-beast:hover {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/10 shadow-[0_4px_20px_rgba(255,83,87,0.2)]">
+<nav class="flex justify-between items-center px-margin-desktop h-20 w-full max-w-[1440px] mx-auto">
+<div class="font-headline-lg text-headline-lg font-black text-primary uppercase italic tracking-tighter">MOBILE MONSTERS</div>
+<div class="hidden md:flex gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:scale-105" href="#">HOME</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">SHOP</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:scale-105" href="#">DEVICES</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:scale-105" href="#">DEALS</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-black border-outline-variant/30 text-on-surface-variant py-2 px-4 rounded focus:ring-1 focus:ring-primary focus:border-primary w-64 font-label-mono outline-none" placeholder="HUNT FOR POWER..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">shopping_cart</span></button>
+<button class="hover:scale-110 transition-transform"><span class="material-symbols-outlined text-primary">person</span></button>
+</div>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section / Product Gallery -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-stack-lg">
+<div class="relative group perspective-view">
+<div class="absolute -inset-4 bg-primary-container/20 blur-3xl rounded-full opacity-50 group-hover:opacity-75 transition-opacity"></div>
+<div class="relative aspect-square flex items-center justify-center rotate-beast">
+<img alt="Monster Flagship Device" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(255,83,87,0.5)]" data-alt="A professional studio product shot of a high-end flagship smartphone with a sleek matte charcoal finish and striking metallic red accents around the camera lens. The phone is floating at a dynamic 3D angle against a dark, moody background with subtle red atmospheric glows. Thin cinematic lighting highlights the sharp, industrial edges and premium texture of the device. The visual style is techno-aggressive and powerful, emphasizing advanced mobile hardware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLaJ6fU0IxehbtXxvpJCHRSadeh1CxnfR3ndxjPDy5JSPojR5qtnIDQX_ZXFDqV3jbN0VEM8Hv19MBhJR6BJ3y87X2fKiwcM99OYErt5ePTAdv3YbqBlmp3wvL0c13Tb2UP4IRhQOw98WLpQHqNOT3kdqIKSKn3z-xZ_Yac5zoFRXnytB3RKMP2nHEuAK3jGXL_-Uv3y5FxmyAOubdiMo7gYy8arLyajkWKNfNcLNY_HI7a-1fdOO-L07L_RViawATlEtlhTLAhEA"/>
+</div>
+<!-- Gallery Thumbs -->
+<div class="flex gap-4 mt-8 justify-center">
+<div class="w-20 h-20 border-2 border-primary bg-surface-container-high p-2 cursor-pointer transition-all hover:scale-110">
+<img class="w-full h-full object-cover" data-alt="Close up shot of a smartphone camera module with three large lenses and a red metallic ring. Dark industrial background with red glow lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXHhXhUzg5e0wykp2MoFUb-uZeEenjxSNtQ48byTRFVK79246Id5nbqZ38TBSCWe8iJaI-8I0NDzQK2dcu5WcuAi2-fbe_eOAtlvw1gk1qFBBIn62Eauv6O79UTBCB86aIBzJfUDTX2Hs0wZAdvF3y-SNESMU4SBGJzNsJof57-JzHQYnL4SjCb9NpS3si-MUgOHpAQ9VEXwv30mvA-PSl6LWO4nSYTHytCb-WxkPfj73gB5PWW5I7TCaNpYvm8pzXIlxqf5qv6m4"/>
+</div>
+<div class="w-20 h-20 border-2 border-outline-variant bg-surface-container-high p-2 cursor-pointer transition-all hover:border-primary hover:scale-110">
+<img class="w-full h-full object-cover" data-alt="Side profile view of a slim smartphone with a red physical action button and matte black finish. Sharp lighting highlighting the industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEvKcHUaBvB9DrFDPs4I8ZgKL7xrfVM2-Ao-hEOPwVg96uxgC-EpuNcKeiDbNIIkUAoZOV0xJLIO6xKhHZou8OjwJ5O1ajPEbgzsIRgzCyP1MMC-n81rZp8S1q5VBTgn8_PiLLOYO-vFEhLsq8dgPiJ-kTTEZKUKEDYZNa0WLpEM7veH7t8tyyeQK62FTSIX9MoOHGAftlowXF_8hJ_LfcX0vFl46hlnpR9PfKTiuk7JAUmyQOY58TON8DuVFGp5N_mxnzlCjAAdU"/>
+</div>
+<div class="w-20 h-20 border-2 border-outline-variant bg-surface-container-high p-2 cursor-pointer transition-all hover:border-primary hover:scale-110">
+<img class="w-full h-full object-cover" data-alt="Top down view of the smartphone display showing a vibrant abstract wallpaper in red and black shades. High contrast screen lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9KAHRyC5TvFt2K9gi0tYS0N4TCHaAqBsQHz-lxplP50FKImqiRL9gv0s8HAKmOzB7u2r1UtRZHfP3veY9omx08iaBwe09zxgbECA8Mn2hzszzD3jE-3NP173ru-lHMJttMYjxbSIJhH3cLZvrZN729_iSG2yM79_uP0truWxeLGwnLBht2GVW8v2mypWJMMbYTqROjTPF9yc6y3oOkrYhNccd8UfYOcIO-Chc51G3KIBo4uK6AoagDLMFfhozioKnjAm6mfIFpng"/>
+</div>
+</div>
+</div>
+<!-- Product Details -->
+<div class="flex flex-col gap-6">
+<div class="space-y-2">
+<span class="font-label-mono text-secondary-container tracking-widest bg-secondary-container/10 px-3 py-1 uppercase">2024 ELITE EDITION</span>
+<h1 class="font-display-xl text-display-xl text-on-surface uppercase tracking-tighter">MONSTER PRO X1</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Engineering overkill. The X1 isn't just a phone; it's a mobile assault vehicle for your digital life. Powered by the Titan-9 chip.</p>
+</div>
+<div class="flex items-baseline gap-4 mt-4">
+<span class="font-display-xl text-headline-lg text-primary">$1,499</span>
+<span class="font-headline-md text-on-surface-variant line-through opacity-50">$1,799</span>
+<span class="font-label-mono text-secondary-container">IN STOCK: READY TO UNLEASH</span>
+</div>
+<!-- Beast Mode Highlights -->
+<div class="grid grid-cols-3 gap-4 py-6">
+<div class="bg-surface-container-low p-4 border-l-2 border-primary hover:bg-surface-container-high transition-colors">
+<div class="font-label-mono text-primary mb-1">RAM</div>
+<div class="font-headline-md text-on-surface">24GB</div>
+<div class="text-[10px] text-on-surface-variant">LPDDR5X HYPERDRIVE</div>
+</div>
+<div class="bg-surface-container-low p-4 border-l-2 border-primary hover:bg-surface-container-high transition-colors">
+<div class="font-label-mono text-primary mb-1">BATTERY</div>
+<div class="font-headline-md text-on-surface">6500mAh</div>
+<div class="text-[10px] text-on-surface-variant">120W BEAST-CHARGE</div>
+</div>
+<div class="bg-surface-container-low p-4 border-l-2 border-primary hover:bg-surface-container-high transition-colors">
+<div class="font-label-mono text-primary mb-1">OPTICS</div>
+<div class="font-headline-md text-on-surface">200MP</div>
+<div class="text-[10px] text-on-surface-variant">NIGHT-HUNT SENSOR</div>
+</div>
+</div>
+<div class="flex flex-col gap-4 mt-4">
+<button class="bg-primary-container text-white py-6 px-12 font-display-xl text-headline-md uppercase tracking-widest hard-shadow active:translate-x-1 active:translate-y-1 active:shadow-none hover:brightness-110 transition-all">
+                        CAPTURE THE BEAST
+                    </button>
+<div class="flex gap-4">
+<button class="flex-1 border-2 border-outline py-4 font-label-mono hover:border-primary hover:text-primary transition-all">COMPARE SPECS</button>
+<button class="w-16 border-2 border-outline flex items-center justify-center hover:border-primary group transition-all">
+<span class="material-symbols-outlined group-hover:scale-125 transition-transform">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Tech Specs Bento Grid -->
+<section class="bg-surface-container-lowest py-stack-lg border-y border-primary/10">
+<div class="max-w-[1440px] mx-auto px-margin-desktop">
+<div class="flex items-center gap-4 mb-12">
+<h2 class="font-headline-lg text-on-surface uppercase italic">INTERNAL ARCHITECTURE</h2>
+<div class="flex-1 h-1 bg-gradient-to-r from-primary to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Display Card -->
+<div class="md:col-span-2 bg-surface-container p-8 rounded-xl border border-outline-variant hover:border-primary/50 transition-all group overflow-hidden relative">
+<div class="absolute top-0 left-0 scanline opacity-0 group-hover:opacity-100 group-hover:animate-pulse"></div>
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-mono text-primary">01. VISUAL ENGINE</span>
+<h3 class="font-headline-md text-on-surface mt-2">6.9" NEON-AMOLED 2.0</h3>
+<p class="text-on-surface-variant mt-4">165Hz adaptive refresh rate with 3500 nits peak brightness. Pure color accuracy even under direct sunlight.</p>
+</div>
+<span class="material-symbols-outlined text-4xl text-primary/30">display_settings</span>
+</div>
+<div class="mt-8 flex gap-8">
+<div class="text-center">
+<div class="font-headline-md text-on-surface">1B+</div>
+<div class="font-label-mono text-xs opacity-50">COLORS</div>
+</div>
+<div class="text-center">
+<div class="font-headline-md text-on-surface">165Hz</div>
+<div class="font-label-mono text-xs opacity-50">REFRESH</div>
+</div>
+<div class="text-center">
+<div class="font-headline-md text-on-surface">4K+</div>
+<div class="font-label-mono text-xs opacity-50">RESOLUTION</div>
+</div>
+</div>
+</div>
+<!-- Performance Stats -->
+<div class="bg-primary p-8 rounded-xl hard-shadow text-on-primary flex flex-col justify-between">
+<div>
+<span class="font-label-mono opacity-80">02. RAW POWER</span>
+<h3 class="font-headline-md mt-2">TITAN-9 CHIPSET</h3>
+</div>
+<div class="space-y-4 my-8">
+<div class="flex justify-between font-label-mono text-sm border-b border-on-primary/20 pb-1">
+<span>CPU SPEED</span>
+<span>3.9GHz</span>
+</div>
+<div class="flex justify-between font-label-mono text-sm border-b border-on-primary/20 pb-1">
+<span>CORES</span>
+<span>12-CORE</span>
+</div>
+<div class="flex justify-between font-label-mono text-sm border-b border-on-primary/20 pb-1">
+<span>NEURAL</span>
+<span>50 TOPS</span>
+</div>
+</div>
+<div class="font-display-xl text-headline-lg opacity-10">BEAST</div>
+</div>
+<!-- Specifications Table Style -->
+<div class="md:col-span-3 mt-8">
+<div class="glass-panel overflow-hidden">
+<table class="w-full text-left font-body-md border-collapse">
+<thead class="bg-surface-container-high font-label-mono text-primary uppercase">
+<tr>
+<th class="p-4 border-r border-outline-variant/30">COMPONENT</th>
+<th class="p-4">SPECIFICATION DETAILS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 group transition-all">
+<td class="p-4 border-r border-outline-variant/30 font-label-mono text-primary">OS</td>
+<td class="p-4 text-on-surface">MonsterOS v14 (Optimized Android Core)</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 group transition-all">
+<td class="p-4 border-r border-outline-variant/30 font-label-mono text-primary">NETWORK</td>
+<td class="p-4 text-on-surface">Dual 5G High-Band, Wi-Fi 7 Ready, Sat-Link Pro</td>
+</tr>
+<tr class="border-b border-outline-variant/30 hover:bg-primary/5 group transition-all">
+<td class="p-4 border-r border-outline-variant/30 font-label-mono text-primary">THERMALS</td>
+<td class="p-4 text-on-surface">Vapor-Chamber 4.0 Liquid Cooling System</td>
+</tr>
+<tr class="hover:bg-primary/5 group transition-all">
+<td class="p-4 border-r border-outline-variant/30 font-label-mono text-primary">BUILD</td>
+<td class="p-4 text-on-surface">Titanium Alloy Frame, Gorilla Glass Armor Front/Back</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Customer Reviews -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-stack-lg">
+<h2 class="font-headline-lg text-on-surface uppercase mb-8">VOICES FROM THE PACK</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-surface-container p-6 border-t-2 border-secondary-container">
+<div class="flex gap-1 text-secondary-container mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6">"Switched from the leading brand and never looked back. The 24GB RAM handles 4K video editing while gaming without a single frame drop. Absolute beast."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">JD</div>
+<div class="font-label-mono text-xs">JASON_DRIVE | <span class="opacity-50">PRO GAMER</span></div>
+</div>
+</div>
+<div class="bg-surface-container p-6 border-t-2 border-primary">
+<div class="flex gap-1 text-primary mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6">"The camera is unreal. Took this out for a night shoot and it captured details the human eye couldn't even see. The night-hunt sensor is the real deal."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">SL</div>
+<div class="font-label-mono text-xs">SARA_LENS | <span class="opacity-50">PHOTOGRAPHER</span></div>
+</div>
+</div>
+<div class="bg-surface-container p-6 border-t-2 border-secondary-container">
+<div class="flex gap-1 text-secondary-container mb-4">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="font-body-md text-on-surface-variant italic mb-6">"Charging speed is life-changing. 10 minutes gives me enough juice for the whole day. Heavy, but it feels like it could stop a bullet."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary">MK</div>
+<div class="font-label-mono text-xs">MIKE_K | <span class="opacity-50">TECH ENTHUSIAST</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Accessories -->
+<section class="max-w-[1440px] mx-auto px-margin-desktop py-stack-lg border-t border-primary/10">
+<div class="flex justify-between items-end mb-12">
+<h2 class="font-headline-lg text-on-surface uppercase">EQUIP YOUR BEAST</h2>
+<a class="font-label-mono text-primary hover:underline" href="#">VIEW ALL GEAR →</a>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Acc Item 1 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-high overflow-hidden border border-outline-variant hover:border-primary transition-all">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High-end noise cancelling headphones in matte black with red internal ear cup details. Dramatic lighting highlighting the sleek industrial textures and premium build quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCq5PKbbNQp6T4A6on8RyZ4NvhdOSfqAZTUSkHLZa-h5qnwCzo_40AnpI2MTGsCN2WM99EKMovxJ9UxEzq0xUUUV1AqUsbr5isfilOB5JfBQA-RjhiNYwHcDSJ9s0HDO8LDUtD4caOk0u7KYamXZGdKuPP-K914dicpExH_HYu-RmnXJwUzy6_CiuhsYaCWjpFISp2mFbxOIZIS0M_yaC6IaF687PvCkkLt7b_fSM-D4HFi1hFD37Q6EIyJM635Zk-4NYPUbXiM06s"/>
+</div>
+<div class="mt-4">
+<h4 class="font-headline-md text-body-lg text-on-surface">MONSTER AUDIO PRO</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-mono text-primary">$299</span>
+<button class="bg-primary px-3 py-1 text-on-primary-fixed font-bold text-xs">ADD</button>
+</div>
+</div>
+</div>
+<!-- Acc Item 2 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-high overflow-hidden border border-outline-variant hover:border-primary transition-all">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A rugged smartwatch with a large circular display and a tactical red and black silicone strap. The background is a dark tech laboratory with ambient red glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvg4R3e-fCwNWNupynJ8cVq3F4lKBv9JwaySRgI5ogKZelZzChbWDseLZNVYJDpHu6x4_i33Y0ivFsj_i_Vcx34Q5h0FCQFjbMnqUzs1nbm9rw7yOFN_iZzDbExQVn8TnjRGvFwDO84IcCo1KVCYs7g8f510gPaTYrYI1LCOCf43pyUijPzcVYw08BzK5GzvUqUyyPSaUr3LIC2TVRMlXeaf-s_qtBBqVAKVYHF5vDwR7nb6-UXJS9FiBaM7GkgK8-YnhjjgSC6k0"/>
+</div>
+<div class="mt-4">
+<h4 class="font-headline-md text-body-lg text-on-surface">TACTICAL WATCH</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-mono text-primary">$199</span>
+<button class="bg-primary px-3 py-1 text-on-primary-fixed font-bold text-xs">ADD</button>
+</div>
+</div>
+</div>
+<!-- Acc Item 3 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-high overflow-hidden border border-outline-variant hover:border-primary transition-all">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A minimalist black wireless charging pad with a glowing red LED ring around the base. Futuristic design aesthetic with sharp shadows and high contrast lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcYgZ-ARfU1s_NJl7y8HMpqQsvU27-vl6Fo7loQLNjwNCNNOeuLhMVqSLay1kx9fZFRnY8xRyk1K7MM9vr7sxe9g46GUhyun248nc53PBQwhBS6K6SbJempL7uzzzKcvvVPEUqAjVnqEtktGQygYmVYqpGY1qPIgHiH9BDIpGdPWEhzNMSNJbo7f1P8JBAH56rBRrHX1JP_OFyxRH9gjpZ6Cz0_ULIjPI32Z2IujsoGGuj5QqRSAA7_Xt8rmQ2sARq5gPbHU-mzcQ"/>
+</div>
+<div class="mt-4">
+<h4 class="font-headline-md text-body-lg text-on-surface">BEAST DOCK</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-mono text-primary">$89</span>
+<button class="bg-primary px-3 py-1 text-on-primary-fixed font-bold text-xs">ADD</button>
+</div>
+</div>
+</div>
+<!-- Acc Item 4 -->
+<div class="group">
+<div class="aspect-square bg-surface-container-high overflow-hidden border border-outline-variant hover:border-primary transition-all">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="A carbon fiber smartphone protective case with reinforced corners and red accents. Aggressive industrial design displayed on a polished black surface with cinematic highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBevz0KsL-hAc79S7Zg4XSjP4D45lriQsvS2HwGepOsvRu4LxwqLl1KpArYtrQFqYJ2QUiA6M5gklNFAki_xe_larjOszIVttSHM3B5cWXWRVQ2mHxsc5bw5pWGq2sK26PDUpPuIOQ9aZi3IvD6xXsQjlbIc7RDrzP0VeZvGUnge4vt28neIMQwmcYLCRMGqLQg4euOBFdCQb8llmn-B9HvAiTS1VxmNU4Df1t6MhIIlxmkcWb31WvrHwX2j3IJCYn4lTE8mlLVBdQ"/>
+</div>
+<div class="mt-4">
+<h4 class="font-headline-md text-body-lg text-on-surface">CARBON ARMOR</h4>
+<div class="flex justify-between items-center mt-2">
+<span class="font-label-mono text-primary">$59</span>
+<button class="bg-primary px-3 py-1 text-on-primary-fixed font-bold text-xs">ADD</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-desktop mt-stack-lg bg-surface-container-highest border-t-4 border-primary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-7xl mx-auto">
+<div class="col-span-1 md:col-span-2">
+<div class="font-headline-md text-headline-md text-primary font-black mb-4">MOBILE MONSTERS</div>
+<p class="font-body-md text-on-surface-variant max-w-md">The world's most powerful mobile ecosystem. Designed for the obsessed, the professionals, and the monsters of tech.</p>
+</div>
+<div>
+<h5 class="font-label-mono text-primary mb-4 uppercase">NAVIGATE</h5>
+<ul class="flex flex-col gap-2 font-body-md">
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Terms</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Support</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Store Locator</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-primary mb-4 uppercase">CONNECT</h5>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">language</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">rss_feed</span>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-outline-variant/30 font-label-mono text-label-mono text-on-tertiary-fixed-variant text-center">
+            © 2024 MOBILE MONSTERS. UNLEASH THE BEAST.
+        </div>
+</footer>
+<script>
+        // Simple micro-interaction for spec rows
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.style.boxShadow = "inset 4px 0 0 #ff5357";
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.boxShadow = "none";
+            });
+        });
+
+        // CTA button pulsing effect on hover
+        const cta = document.querySelector('button.bg-primary-container');
+        cta.addEventListener('mouseenter', () => {
+            cta.classList.add('beast-glow');
+        });
+        cta.addEventListener('mouseleave', () => {
+            cta.classList.remove('beast-glow');
+        });
+    </script>
+</body></html>
