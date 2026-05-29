@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOBILE MONSTERS | Unleash the Beast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-panel {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hard-shadow {
+      box-shadow: 4px 4px 0px 0px #bf0024;
+    }
+    .glow-red {
+      box-shadow: 0 0 15px rgba(255, 83, 87, 0.3);
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+                  "on-primary-fixed": "#410006",
+                  "on-tertiary-container": "#2a292c",
+                  "on-secondary-fixed": "#002022",
+                  "inverse-surface": "#e2e2e2",
+                  "on-surface-variant": "#e9bcb9",
+                  "on-secondary-fixed-variant": "#004f54",
+                  "surface-container-highest": "#333535",
+                  "on-primary": "#68000e",
+                  "on-primary-fixed-variant": "#930019",
+                  "primary-fixed": "#ffdad8",
+                  "on-primary-container": "#5c000b",
+                  "surface": "#121414",
+                  "surface-bright": "#37393a",
+                  "on-secondary": "#00363a",
+                  "tertiary-container": "#929093",
+                  "on-tertiary": "#303032",
+                  "tertiary-fixed-dim": "#c8c6c8",
+                  "primary-fixed-dim": "#ffb3af",
+                  "surface-tint": "#ffb3af",
+                  "on-secondary-container": "#00686f",
+                  "error": "#ffb4ab",
+                  "surface-container-lowest": "#0c0f0f",
+                  "outline": "#b08784",
+                  "secondary-container": "#00eefc",
+                  "primary": "#ffb3af",
+                  "secondary": "#d3fbff",
+                  "inverse-primary": "#bf0024",
+                  "on-background": "#e2e2e2",
+                  "tertiary": "#c8c6c8",
+                  "on-tertiary-fixed-variant": "#474649",
+                  "background": "#121414",
+                  "on-surface": "#e2e2e2",
+                  "surface-variant": "#333535",
+                  "tertiary-fixed": "#e5e1e4",
+                  "surface-container": "#1e2020",
+                  "surface-container-high": "#282a2b",
+                  "on-error": "#690005",
+                  "surface-dim": "#121414",
+                  "primary-container": "#ff5357",
+                  "secondary-fixed-dim": "#00dbe9",
+                  "on-tertiary-fixed": "#1b1b1d",
+                  "outline-variant": "#5f3e3d",
+                  "error-container": "#93000a",
+                  "surface-container-low": "#1a1c1c",
+                  "secondary-fixed": "#7df4ff",
+                  "on-error-container": "#ffdad6",
+                  "inverse-on-surface": "#2f3131"
+          },
+          "borderRadius": {
+                  "DEFAULT": "0.125rem",
+                  "lg": "0.25rem",
+                  "xl": "0.5rem",
+                  "full": "0.75rem"
+          },
+          "spacing": {
+                  "gutter": "16px",
+                  "stack-sm": "8px",
+                  "stack-lg": "48px",
+                  "stack-md": "24px",
+                  "margin-desktop": "40px",
+                  "margin-mobile": "20px",
+                  "unit": "4px"
+          },
+          "fontFamily": {
+                  "display-xl": ["Montserrat"],
+                  "headline-lg": ["Montserrat"],
+                  "headline-lg-mobile": ["Montserrat"],
+                  "headline-md": ["Montserrat"],
+                  "body-lg": ["Inter"],
+                  "body-md": ["Inter"],
+                  "label-mono": ["JetBrains Mono"]
+          },
+          "fontSize": {
+                  "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                  "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                  "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                  "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                  "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                  "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-white">
+<!-- Predicted: SideNavBar (Mobile Drawer) -->
+<aside class="h-full w-72 left-0 top-0 fixed z-[100] bg-surface-container-lowest border-r border-primary/20 shadow-[10px_0_30px_rgba(0,0,0,0.5)] flex flex-col py-8 -translate-x-full transition-transform duration-300" id="side-nav">
+<div class="px-6 mb-10 flex items-center justify-between">
+<div>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-black">MONSTER CREW</h2>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase">Power User Status</p>
+</div>
+<button class="text-primary active:scale-95" onclick="toggleMenu()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<nav class="flex-grow space-y-2">
+<!-- Active Tab: Home -->
+<a class="bg-primary text-on-primary-fixed flex items-center gap-4 p-4 rounded-r-full shadow-[4px_0_10px_rgba(255,83,87,0.5)] active:brightness-125" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-headline-md text-headline-md">Home</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-4 p-4 hover:bg-surface-variant hover:translate-x-2 transition-transform duration-200 active:brightness-125" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-headline-md text-headline-md">Catalog</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-4 p-4 hover:bg-surface-variant hover:translate-x-2 transition-transform duration-200 active:brightness-125" href="#">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-headline-md text-headline-md">Specials</span>
+</a>
+<a class="text-on-surface-variant flex items-center gap-4 p-4 hover:bg-surface-variant hover:translate-x-2 transition-transform duration-200 active:brightness-125" href="#">
+<span class="material-symbols-outlined">person_2</span>
+<span class="font-headline-md text-headline-md">Account</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-primary-container text-white py-4 font-headline-md rounded-lg hard-shadow active:scale-95 transition-transform">
+        UPGRADE GEAR
+      </button>
+</div>
+</aside>
+<!-- Predicted: TopNavBar (Mobile Optimized) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/10 shadow-[0_4px_20px_rgba(255,83,87,0.2)]">
+<div class="flex justify-between items-center px-5 h-16 w-full">
+<button class="text-primary active:scale-90 transition-transform" onclick="toggleMenu()">
+<span class="material-symbols-outlined text-[32px]">menu</span>
+</button>
+<div class="font-headline-lg-mobile text-headline-lg-mobile font-black text-primary uppercase italic tracking-tighter">
+        MOBILE MONSTERS
+      </div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary hover:scale-110 transition-transform">shopping_cart</span>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-24">
+<!-- Hero Section: High Impact Device Imagery -->
+<section class="relative h-[751px] w-full overflow-hidden mb-stack-lg">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A cinematic, low-angle close-up of a sleek, dark titanium smartphone floating in a void of deep charcoal smoke. Intense red laser lines scan the device's edges, highlighting its sharp industrial design. The lighting is high-contrast and dramatic, with a glowing red aura pulsing from beneath the screen. The overall aesthetic is techno-aggressive and premium, perfect for a high-performance gaming phone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZGir-lIP9KRImjdC81KF7W3HJE2ZG_EtcW0EuMJMjwY-zATrdfcS1TEvQZNvoMahtMWrln8UdaVNlGozRjEv5XuwaEkRES3uU0PCMoAs_xz6Fn68MUec1VrpJ3Pb5q1gamDNSMmvvpCTOxAHa7HuxNnHlNFI3y7goFzsbxjOAQWxunhPaXm-ZylzDJoHhWok5D0oLgxmUPN7EJG_REqXf4Hx_9Yl8LiwqvBdu7ajJmKXq-Qfso1S-uqCXUui_clsS9xPiFJ05_uA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-end px-margin-mobile pb-12">
+<span class="font-label-mono text-label-mono text-secondary-fixed bg-secondary-fixed/10 px-3 py-1 rounded w-fit mb-4">NEW ARRIVAL: APEX TITAN</span>
+<h1 class="font-display-xl text-display-xl text-white mb-4 leading-[0.9]">RAW<br/><span class="text-primary">POWER.</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[280px] mb-8">Forged for the elite. Overclocked for the extreme.</p>
+<div class="flex gap-4">
+<button class="bg-primary-container text-white px-8 py-4 font-headline-md rounded-lg hard-shadow active:scale-95 transition-all">SHOP NOW</button>
+<button class="border-2 border-primary text-primary px-8 py-4 font-headline-md rounded-lg glow-red active:scale-95 transition-all">SPECS</button>
+</div>
+</div>
+</section>
+<!-- Quick Access Categories: Bento-ish Mobile Grid -->
+<section class="px-margin-mobile mb-stack-lg">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-6 italic">CATEGORIES</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2 relative h-40 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover brightness-50 group-hover:scale-110 transition-transform duration-700" data-alt="A stylized, glowing apple logo rendered in a liquid metal texture against a dark, tech-infused background. The atmosphere is filled with subtle red particles and sharp light streaks. A minimalist and high-end aesthetic that suggests premium performance and status." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOwXS8z_I9dEGb33cX3dKfCYfrhM6Tq5NDHMYYlt6ONEA6x7LThCGmpsFy4LXvhZsErHmtbPZwy5m0iHxsLMYGjVOTrGR000JsRZrE4Zj6pn8K0z8sR-ooKvyPNzhVOciHetGhYuCzs6mf0qiTEoBT6TEq0D5J_ngzTUc3y7ouLXie3WEA7oKoQtPcjmkbd1QQfg3uy4BZxZUQzIzueOcDVlBeYZKgckpGpc6XfmL2saTaSmq14SVXjmLRmQSLAT0fW2ug43p29no"/>
+<div class="absolute inset-0 flex items-center justify-center bg-black/20">
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-white z-10">APPLE</span>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+</div>
+<div class="relative h-40 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover brightness-50 group-hover:scale-110 transition-transform duration-700" data-alt="A high-tech digital render of circular camera lenses glowing with a neon cyan inner light, reflecting on a polished black surface. The background features geometric patterns and data-like overlays in deep reds and blacks. The mood is futuristic and technical." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4vi53Lb_ZOfgyCcnJEoj4POxTNB793YEOplKYX0t8OxNf5absw4_V9if8wbMWnssp8ihaPQ7MJcIr2vgqxhpp9gcFoKdw2hTR9lfWSZtNIYykSMb5i0CDq3xsLYMDs3RH7dM7vQdiqPRXZEMSyYB7gWXwBtaJfaUfOi8F78V30ODLg0RMUmgnzNJl5oTVBnPtnlnYBFr1HrETcUDfjfuTnmHCrczH6Vygxqyyt18OU9npOOFlHzEvpX-QiJCWx_viCQemYle2sXA"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-headline-md text-headline-md text-white">SAMSUNG</span>
+</div>
+</div>
+<div class="relative h-40 rounded-xl overflow-hidden group">
+<img class="w-full h-full object-cover brightness-50 group-hover:scale-110 transition-transform duration-700" data-alt="A collection of diverse high-end smartphones laid out on a dark slate surface, illuminated by a sharp red overhead spotlight. The phones look pristine and professional. Shadows are hard and dramatic, emphasizing the metallic textures and premium build quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfKBDAvcAl2SYLh7JWfDk9UcRDeddmzMQz1cEH77xfdO6d9cBY_hhsQbK2rEUd2pKZ3a0E2NGPJcH2zJvbVHglr4lzbtAaWZY3E_O0XjlQ_YSBCJwmuyDtgCxqa_FuDriqzKsqoxmhiG0eNCruVNgHFSBn6mnzIkzV0y92ayOOSP31DDn7Rcze8QkF7xXNjyuESJbOPNpCYQApXf41f-y109oaFbkurksoC29oRdFwVYZ7M9uqQq1JJjHhHUBIKcNKf7w9ApXGeCw"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-headline-md text-headline-md text-white text-center">UK USED</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Swipeable 'Deals' Carousel -->
+<section class="mb-stack-lg">
+<div class="px-margin-mobile flex justify-between items-end mb-6">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-white italic">MONSTER DEALS</h2>
+<span class="font-label-mono text-label-mono text-primary animate-pulse">LIVE NOW</span>
+</div>
+<div class="flex overflow-x-auto gap-4 px-margin-mobile no-scrollbar snap-x snap-mandatory">
+<!-- Deal Card 1 -->
+<div class="min-w-[280px] bg-surface-container h-full rounded-xl p-4 border border-outline-variant/30 snap-center">
+<div class="relative h-48 mb-4 bg-black rounded-lg flex items-center justify-center">
+<img class="h-40 object-contain" data-alt="A sleek black smartphone with a vibrant red neon light strip running down its side, showcased in a three-quarter view. The device is surrounded by floating tech components and digital code fragments in a dark, atmospheric environment. High contrast with deep blacks and vivid red accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe43lwFh1eZPKDA_Pr0fH_biu4kLL_M7v76w6YDYOkcbJS56FwEhje9g60abJPfNyiktiZOKle6agc_6x6fvplHBxkyv7K_3pOAa53jhegszD_C9AyJypvWlDAvP8hhJaXw0J3d4KWUr-A-q-RFahiD0Ogkb88S2J4JSmnHYRLuD3ZvrXrYn60QvbJ40SK5V1Ee0nMfDCNGGOEUmsyJQJdzl_qdKi9JikcibsQciQPUGGLPYJc7xy2Db3Gkf2cnceUeKqKgOjr_YI"/>
+<div class="absolute top-2 right-2 bg-primary text-on-primary font-label-mono px-2 py-1 text-xs">20% OFF</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">GALAXY Z FOLD X</h3>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-display-xl text-[24px] text-primary">$1,299</span>
+<span class="font-label-mono text-on-surface-variant line-through text-sm">$1,599</span>
+</div>
+</div>
+<!-- Deal Card 2 -->
+<div class="min-w-[280px] bg-surface-container h-full rounded-xl p-4 border border-outline-variant/30 snap-center">
+<div class="relative h-48 mb-4 bg-black rounded-lg flex items-center justify-center">
+<img class="h-40 object-contain" data-alt="A modern smartphone with a glass back reflecting a dramatic red and black sunset. The phone's camera module is large and aggressive, suggesting high-performance photography. The lighting is focused and cinematic, creating a sense of luxury and technological superiority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNEc1vTu2mKsnGmLlR4gtHNprIo5eo0KskN-7MJgefJGVg2kbfrS4b8oI8DdYrkY3h_kbDjm-dNpG5dkLxJBiN5j29y7W7HzK5NbWUWTBVsCWiFyou-DPB8WiV-wIKJaJCOtizcm4JAJJulBkRo6V8PtERG4cCCtsZoAr8FRPjg7eiHaasdLrTsu2wYfZr7jxvPJyGozD_45RcTFIFUGsl2_MMgAEjZzSCX-PnxzOQHOhDu_-TMVWcKi3RkjEaSCLsZWkWWIvineY"/>
+<div class="absolute top-2 right-2 bg-secondary-fixed text-on-secondary-fixed font-label-mono px-2 py-1 text-xs">HOT</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">MONSTER PRO 15</h3>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-display-xl text-[24px] text-primary">$999</span>
+<span class="font-label-mono text-on-surface-variant line-through text-sm">$1,199</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Vertical Scrolling Feed: High Impact Specs -->
+<section class="px-margin-mobile space-y-12 mb-stack-lg">
+<div class="border-l-4 border-primary pl-6 py-2">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-white">THE SPEC BEASTS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Unrivaled hardware for power users.</p>
+</div>
+<!-- Spec Card 1 -->
+<div class="space-y-6">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-high glow-red">
+<img class="w-full h-full object-cover" data-alt="A macro photography shot of a high-performance mobile processor chip glowing with an intense red core. Electrical circuits pulse with light across the dark silicon surface. The image is hyper-detailed, highlighting the intricate technological architecture. Aesthetic is futuristic, aggressive, and powerful." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS_RPWqqaYnX8w6OJLwUMFLvjiIEY4NkMO8p-ZCXmAZ_zf4cIiCROb6ZeI5FLvUSwjg-LrQnOxAdjy-v_d2HLqT9HYmhaefzV6aWCaCWilGExwH9YGj9LR4Y-n_3BDsJAi_ngT6KDylxo3NPP3amj6LAOL6vKu6RlTu4w68U7JSIDBWCQPkWEwmU9uE8aSfDR-1uiirqrpb6nOGlDgLv5ISNjPPxONZ8wTA0xfMVvTzo7LV0Qw9aBZmdVTsCVEo57xbLdA4IAugKE"/>
+<div class="absolute top-4 left-4 font-label-mono text-label-mono text-white bg-black/60 backdrop-blur px-3 py-1 border border-primary/40">SNAPDRAGON 8 GEN 4</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-low p-4 border-t border-primary/20">
+<p class="font-label-mono text-xs text-on-surface-variant mb-1">REFRESH RATE</p>
+<p class="font-headline-md text-primary">165Hz</p>
+</div>
+<div class="bg-surface-container-low p-4 border-t border-primary/20">
+<p class="font-label-mono text-xs text-on-surface-variant mb-1">RAM STORAGE</p>
+<p class="font-headline-md text-primary">24GB</p>
+</div>
+</div>
+</div>
+<!-- Spec Card 2 -->
+<div class="space-y-6">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-surface-container-high border-2 border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A futuristic cooling system for a mobile device, featuring liquid-cooled copper pipes and a small, glowing red fan. Vapor mist rises from the heat sink. The lighting is moody and technological, using a palette of deep charcoal and high-chroma red. Professional product render with sharp focus and cinematic depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCedEjyx3DHapRNO4RROtPeQ9m5QYTNwguu3K0szNTCa0S9ru6j7Xs6gnPl2heIIJmXh0MQm0GsJqcauUPSo4fcxJJ93yggSmawzoEMfo8rjE96GpT5ncvUdipGx0YRtKIY5Grqm81SyjYYRz7x65XzQ4cieL2VC0kV2JxssQfcUQj4wBXH4A4diqAxVUYAlBQh90qF6HhFL1jCqvKGb-rNP4TmqvfSdKyWnIdLN-hrFWAZWmAjVMIdNeUMeM164-RhRfKTcABI_AQ"/>
+<div class="absolute top-4 left-4 font-label-mono text-label-mono text-white bg-black/60 backdrop-blur px-3 py-1 border border-primary/40">ICE-VOX COOLING</div>
+</div>
+<div class="grid grid-cols-2 gap-gutter">
+<div class="bg-surface-container-low p-4 border-t border-primary/20">
+<p class="font-label-mono text-xs text-on-surface-variant mb-1">PEAK BRIGHTNESS</p>
+<p class="font-headline-md text-primary">4500 NITS</p>
+</div>
+<div class="bg-surface-container-low p-4 border-t border-primary/20">
+<p class="font-label-mono text-xs text-on-surface-variant mb-1">CHARGE TIME</p>
+<p class="font-headline-md text-primary">12 MINS</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Predicted: Footer -->
+<footer class="w-full py-12 px-margin-mobile mt-stack-lg bg-surface-container-highest border-t-4 border-primary">
+<div class="grid grid-cols-1 gap-12 max-w-7xl mx-auto">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary font-black mb-4">MOBILE MONSTERS</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">The ultimate destination for mobile warriors and tech enthusiasts.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">social_leaderboard</span>
+<span class="material-symbols-outlined text-primary">share</span>
+<span class="material-symbols-outlined text-primary">info</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-3">
+<a class="font-label-mono text-label-mono text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-label-mono text-label-mono text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Terms</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-mono text-label-mono text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Support</a>
+<a class="font-label-mono text-label-mono text-on-tertiary-fixed-variant hover:text-primary transition-colors" href="#">Store Locator</a>
+</div>
+</div>
+<div class="border-t border-primary/10 pt-8 text-center">
+<p class="font-label-mono text-label-mono text-on-surface-variant">© 2024 MOBILE MONSTERS. UNLEASH THE BEAST.</p>
+</div>
+</div>
+</footer>
+<!-- Thumb-Navigation Bar (Standard for modern high-performance mobile UX) -->
+<nav class="md:hidden fixed bottom-0 w-full h-16 glass-panel bg-surface/80 border-t border-primary/10 flex items-center justify-around z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-label-mono uppercase">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-label-mono uppercase">Search</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">bolt</span>
+<span class="text-[10px] font-label-mono uppercase">Deals</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-label-mono uppercase">Profile</span>
+</button>
+</nav>
+<script>
+    const sideNav = document.getElementById('side-nav');
+    
+    function toggleMenu() {
+      if (sideNav.classList.contains('-translate-x-full')) {
+        sideNav.classList.remove('-translate-x-full');
+        document.body.style.overflow = 'hidden';
+      } else {
+        sideNav.classList.add('-translate-x-full');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Micro-interaction for smooth reveal of elements on scroll
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+      observer.observe(section);
+    });
+  </script>
+</body></html>
