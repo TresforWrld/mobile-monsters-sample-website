@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MOBILE MONSTERS | Unleash the Beast</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Montserrat:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .monster-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 51, 0.4);
+        }
+        .floating-beast {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(5deg); }
+            50% { transform: translateY(-20px) rotateX(-5deg); }
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .preserve-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .card-container:hover .preserve-3d {
+            transform: rotateY(10deg) rotateX(5deg);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed": "#410006",
+                      "on-tertiary-container": "#2a292c",
+                      "on-secondary-fixed": "#002022",
+                      "inverse-surface": "#e2e2e2",
+                      "on-surface-variant": "#e9bcb9",
+                      "on-secondary-fixed-variant": "#004f54",
+                      "surface-container-highest": "#333535",
+                      "on-primary": "#68000e",
+                      "on-primary-fixed-variant": "#930019",
+                      "primary-fixed": "#ffdad8",
+                      "on-primary-container": "#5c000b",
+                      "surface": "#121414",
+                      "surface-bright": "#37393a",
+                      "on-secondary": "#00363a",
+                      "tertiary-container": "#929093",
+                      "on-tertiary": "#303032",
+                      "tertiary-fixed-dim": "#c8c6c8",
+                      "primary-fixed-dim": "#ffb3af",
+                      "surface-tint": "#ffb3af",
+                      "on-secondary-container": "#00686f",
+                      "error": "#ffb4ab",
+                      "surface-container-lowest": "#0c0f0f",
+                      "outline": "#b08784",
+                      "secondary-container": "#00eefc",
+                      "primary": "#ffb3af",
+                      "secondary": "#d3fbff",
+                      "inverse-primary": "#bf0024",
+                      "on-background": "#e2e2e2",
+                      "tertiary": "#c8c6c8",
+                      "on-tertiary-fixed-variant": "#474649",
+                      "background": "#121414",
+                      "on-surface": "#e2e2e2",
+                      "surface-variant": "#333535",
+                      "tertiary-fixed": "#e5e1e4",
+                      "surface-container": "#1e2020",
+                      "surface-container-high": "#282a2b",
+                      "on-error": "#690005",
+                      "surface-dim": "#121414",
+                      "primary-container": "#ff5357",
+                      "secondary-fixed-dim": "#00dbe9",
+                      "on-tertiary-fixed": "#1b1b1d",
+                      "outline-variant": "#5f3e3d",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#1a1c1c",
+                      "secondary-fixed": "#7df4ff",
+                      "on-error-container": "#ffdad6",
+                      "inverse-on-surface": "#2f3131"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "stack-sm": "8px",
+                      "stack-lg": "48px",
+                      "stack-md": "24px",
+                      "margin-desktop": "40px",
+                      "margin-mobile": "20px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "display-xl": ["Montserrat"],
+                      "headline-lg": ["Montserrat"],
+                      "headline-lg-mobile": ["Montserrat"],
+                      "headline-md": ["Montserrat"],
+                      "body-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "label-mono": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "display-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                      "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-mono": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-white">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-primary/10 shadow-[0_4px_20px_rgba(255,83,87,0.2)] h-20 flex justify-between items-center px-margin-desktop max-w-[1440px] left-1/2 -translate-x-1/2">
+<div class="flex items-center gap-4">
+<img alt="MOBILE MONSTERS" class="h-12 w-12 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_9Qi66BNAuk98Yl19-f7WQiw8koEPQzLUg8r7W1IxvQhELIA6H-ksEAS9Y0QprMTHbTZO95mVETPic2WUyplwSKbOaFr3dT176dYHrrer94f_sGTi0tSWWtS85W1vmhTcLogDkiQHqX0mKf2yx9YRa7aSbwBOHG3lhsnEJZWLDAmCrVhOvLg3Fv-1cdjgoYNMvJ4FZNTScVev8fy1EF1PwNIxIuuYKmYwLBWnw1QXOLJXSFjaRY8ArBlR61RrLyGsqZWeYYyyR-Q"/>
+<h1 class="font-headline-lg text-headline-lg font-black text-primary uppercase italic tracking-tighter">MOBILE MONSTERS</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-display-xl text-body-md" href="#">HOME</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300 font-display-xl text-body-md" href="#">SHOP</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300 font-display-xl text-body-md" href="#">DEVICES</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors hover:scale-105 transition-all duration-300 font-display-xl text-body-md" href="#">DEALS</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:scale-110 active:scale-95 transition-transform" data-icon="shopping_cart">shopping_cart</button>
+<button class="material-symbols-outlined text-primary hover:scale-110 active:scale-95 transition-transform" data-icon="person">person</button>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex flex-col justify-center items-center overflow-hidden px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Atmospheric BG Effect -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-background to-background -z-10"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg items-center max-w-7xl mx-auto">
+<div class="text-center md:text-left">
+<span class="font-label-mono text-label-mono text-secondary mb-4 block tracking-widest uppercase">Performance Redefined</span>
+<h2 class="font-display-xl text-display-xl text-on-surface uppercase mb-6 leading-tight">
+                        Unleash the <span class="text-primary-container italic">Beast</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                        Engineered for power users, built for gamers. Experience raw processing power and surgical precision in every tap.
+                    </p>
+<div class="flex flex-wrap gap-4 justify-center md:justify-start">
+<button class="bg-primary-container text-on-primary-fixed font-headline-md text-headline-md px-10 py-4 font-bold uppercase shadow-[0_4px_0_#930019] hover:translate-y-[2px] hover:shadow-[0_2px_0_#930019] active:translate-y-[4px] active:shadow-none transition-all">
+                            GEAR UP NOW
+                        </button>
+<button class="border-2 border-primary-container text-primary-container font-headline-md text-headline-md px-10 py-4 font-bold uppercase hover:bg-primary-container/10 transition-colors">
+                            VIEW SPECS
+                        </button>
+</div>
+</div>
+<div class="relative flex justify-center items-center perspective-1000">
+<div class="floating-beast">
+<img alt="Monster Device" class="max-w-full h-auto drop-shadow-[0_20px_50px_rgba(255,83,87,0.4)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9agR9q_RZWwMbiPyIAtuQxam_AUD3PjpbIBGwJDafS3XVQA2dpIUZ4WNwPzv-qDksyuxPXgHWme-8qkb47pONxcAF02w9oxTdz0s5OZpqQMA5MaqLGWXH1PYMo7xoh5ONrfyyjYMdBSvKpzFAwPdgxx_w7omSXsYG5UeYFmJY1EPbU1Sy8ZnFgXASVjWicW1RStazBX8AqU04-1keNlKOF2lZeW1XGBYhKcobeW6QOVZL7K0AHL_MO2rDjek5oU6zvgZOwSHpOJQ"/>
+</div>
+<!-- Spec Tag Floaties -->
+<div class="absolute top-10 right-0 glass-card p-4 rounded-xl border-primary/20 animate-pulse hidden md:block">
+<p class="font-label-mono text-[12px] text-secondary">CPU: TITAN 9 GEN 2</p>
+</div>
+<div class="absolute bottom-20 left-0 glass-card p-4 rounded-xl border-primary/20 animate-pulse delay-700 hidden md:block">
+<p class="font-label-mono text-[12px] text-secondary">REFRESH: 240HZ ULTRA</p>
+</div>
+</div>
+</div>
+</section>
+<!-- New Arrivals: 3D Grid -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface uppercase italic">New Arrivals</h3>
+<div class="h-1 w-24 bg-primary-container mt-2"></div>
+</div>
+<a class="font-label-mono text-label-mono text-primary flex items-center gap-2 hover:translate-x-2 transition-transform" href="#">
+                    VIEW ALL UNITS <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="card-container group">
+<div class="preserve-3d bg-surface-container-high border border-outline-variant/30 p-6 relative overflow-hidden h-full flex flex-col">
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-fixed px-3 py-1 font-label-mono text-xs font-black uppercase">5G GAMING</div>
+<div class="mb-8 overflow-hidden">
+<img class="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-500" data-alt="A side view of a matte black gaming smartphone with sharp aggressive edges and a glowing red thermal exhaust port. The device is set against a dark carbon fiber texture with red neon light streaks in a high-energy tech atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFw47pFjBvG2hJNFrJHyBMI0EajrahG8p0yVP2yunA9j3V_I_QJa2AH2OnNqLy1w27pIFenRAYZrGj4-yHctiPZPl0MNSSOI_do5Q2cp0Lrl6loc6PNiYEOC1fiz531TsrlgnL3FmENwQ6H_OIIP-sdMcuJs4xrgtq3F1GkgbFB0KvVUvAk6zh-cNBtcTpMiZ5Bw8pnXdKW10J_VOgob70E6Fp-QiF9TH4NS9JA95gz35cwC4FQxbxkvk7SliyvU0VLzh0CvIK0vo"/>
+</div>
+<div class="mt-auto">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">NEBULA Z-ONE</h4>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-headline-md text-primary">$1,299.00</span>
+<button class="material-symbols-outlined text-primary-container hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">add_circle</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="card-container group">
+<div class="preserve-3d bg-surface-container-high border border-outline-variant/30 p-6 relative overflow-hidden h-full flex flex-col">
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-fixed px-3 py-1 font-label-mono text-xs font-black uppercase">POWER UNIT</div>
+<div class="mb-8 overflow-hidden">
+<img class="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-500" data-alt="A high-performance smartphone with a translucent back panel showing internal copper heat sinks and circuits glowing with deep red light. The phone is positioned at an angle on a brushed metal surface with atmospheric smoke and dramatic spotlighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtyw1TjE3aP74l-TUxqMBwnzUKx0y_6Y_14_ku6ABMORRf9LIDtJZDG4h9_Zp0W8mrFlKne-7eOPgs4fVddYx-0VMreMMy5rQoFhc-l8BENqlm-1wCG5xJJsseicfAtZoswonAOqHrGRBrwoICVMthEH7I7uiwUc_M6piT6kGDb9_H5nWBQkPIXl7_T0sAeWrpowo3JGaCYMCicTcIxlOVvLK0VEtd6I0Ih_Oz0BpffUU9I3p_tgH8TKfDen2gwLlEMwHhyig-_Sk"/>
+</div>
+<div class="mt-auto">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">TITAN X-CORE</h4>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-headline-md text-primary">$999.00</span>
+<button class="material-symbols-outlined text-primary-container hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">add_circle</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="card-container group">
+<div class="preserve-3d bg-surface-container-high border border-outline-variant/30 p-6 relative overflow-hidden h-full flex flex-col">
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary-fixed px-3 py-1 font-label-mono text-xs font-black uppercase">STEALTH</div>
+<div class="mb-8 overflow-hidden">
+<img class="w-full h-64 object-contain group-hover:scale-110 transition-transform duration-500" data-alt="A sleek, ultra-thin mobile phone with a dark gunmetal finish and a triple-lens camera system that has a slight red lens flare. The phone sits on a bed of dark obsidian rock under sharp, cinematic lighting that highlights its aggressive industrial design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCccOSrXmx8y_V9XsIMCENSjeZ7GMkM-CliYViy8xqzykc34s0xW7tp-kzLUm6M4gtuxQDKWXL_lVwGuSJSvr8i9uTAhokVk6XUIXkc6ezB2eFAMvpCuniz4TnT_z5rdoPtgV0A1UySdHGRkiyjHrkFFXSlGAkr_LPstgOU26ixOjNjpBF6YxyCComIxsS3XPkbz-Z8s8Zu6L-AFDRfCtzdvjk_o50ULh_4k8CLrsl6eKZHUnGq_C44rcgjPCo5uSh4Ga4BcsaK1cc"/>
+</div>
+<div class="mt-auto">
+<h4 class="font-headline-md text-headline-md text-on-surface mb-2">PHANTOM OPS</h4>
+<div class="flex justify-between items-center">
+<span class="font-label-mono text-headline-md text-primary">$1,450.00</span>
+<button class="material-symbols-outlined text-primary-container hover:scale-125 transition-transform" style="font-variation-settings: 'FILL' 1;">add_circle</button>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Monster Deals Section (Bento Grid) -->
+<section class="bg-surface-container-lowest py-stack-lg px-margin-mobile md:px-margin-desktop">
+<div class="max-w-7xl mx-auto">
+<h3 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-12 flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-4xl">bolt</span> Monster Deals
+                </h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="md:col-span-2 md:row-span-2 bg-primary-container p-8 relative flex flex-col justify-end overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+<img class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="A high-contrast lifestyle image of a professional gamer using a flagship smartphone with high-end wired headphones. The environment is a dark gaming room with aggressive red ambient lighting and tech equipment in the background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7n9LnJiR-8eKgKu8odt4-1uYatpvg8KebZjlq8h95liffye_Tp3OA7VNSidyYdOYI4EPW6CQHtSNa_TyKw_hGYJPtzOFpC8eGtZPovXUQLMcyuYX3RpYYemgFvb9y1drm5MOFc3RcTXK0brCxM2Lzeh3VVIvZZ9bWmgrMCimpv9QWpqh-EOYS2nrv_Z3x6wBzWxmz9GFHdXwdQ4LOPYOuLZNcqjBTQwq3HEYWiRvbshY1SfLiPr5UV1ogWjFOEz2DmynU3g0_qP0"/>
+<div class="relative z-20">
+<h4 class="font-display-xl text-headline-lg-mobile text-white uppercase font-black leading-none mb-2">Trade-In<br/>Assault</h4>
+<p class="font-body-md text-white/80 mb-6 max-w-xs">Get up to $800 credit when you sacrifice your old device to the Monsters.</p>
+<button class="bg-white text-primary font-bold px-6 py-2 uppercase hover:scale-105 transition-transform">Claim Credit</button>
+</div>
+</div>
+<div class="md:col-span-2 bg-surface-variant p-8 border border-primary/20 group hover:border-primary transition-colors">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-mono text-primary text-xs uppercase mb-2 block">Bundy Deal</span>
+<h4 class="font-headline-md text-headline-md text-on-surface uppercase">The Beast Pack</h4>
+<p class="font-body-md text-on-surface-variant">Phone + Shield Case + Power Bank</p>
+</div>
+<span class="font-display-xl text-headline-lg text-primary">-25%</span>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col justify-between border border-outline-variant/30">
+<span class="material-symbols-outlined text-secondary text-4xl">5g</span>
+<div>
+<h5 class="font-headline-md text-body-lg text-on-surface uppercase mb-2">UNLIMITED 5G</h5>
+<p class="font-label-mono text-xs text-on-surface-variant">$45/mo</p>
+</div>
+</div>
+<div class="bg-surface-container-high p-8 flex flex-col justify-between border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+<div>
+<h5 class="font-headline-md text-body-lg text-on-surface uppercase mb-2">MONSTER CARE</h5>
+<p class="font-label-mono text-xs text-on-surface-variant">FULL COVERAGE</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Brand Story: Techno-Aggressive -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto text-center">
+<img alt="Logo" class="w-24 h-24 mx-auto mb-8 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_9Qi66BNAuk98Yl19-f7WQiw8koEPQzLUg8r7W1IxvQhELIA6H-ksEAS9Y0QprMTHbTZO95mVETPic2WUyplwSKbOaFr3dT176dYHrrer94f_sGTi0tSWWtS85W1vmhTcLogDkiQHqX0mKf2yx9YRa7aSbwBOHG3lhsnEJZWLDAmCrVhOvLg3Fv-1cdjgoYNMvJ4FZNTScVev8fy1EF1PwNIxIuuYKmYwLBWnw1QXOLJXSFjaRY8ArBlR61RrLyGsqZWeYYyyR-Q"/>
+<h3 class="font-headline-lg text-headline-lg text-primary uppercase italic mb-8">Hardware with a Soul of Steel</h3>
+<div class="space-y-6 font-body-lg text-on-surface-variant leading-relaxed text-lg">
+<p>We don't sell consumer electronics. We provide weaponry for the digital age. MOBILE MONSTERS was born from the need for raw, unfiltered performance that standard retail chains simply can't handle.</p>
+<p>Our curation focuses on thermal management, ultra-high refresh rates, and industrial-grade durability. Every device in our vault is vetted for one thing: its ability to handle the most demanding mobile environments known to mankind.</p>
+</div>
+<div class="mt-12 pt-12 border-t border-primary/10 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<div class="font-display-xl text-headline-lg text-primary mb-1">240Hz</div>
+<div class="font-label-mono text-xs uppercase text-on-tertiary-fixed-variant">Peak Refresh</div>
+</div>
+<div>
+<div class="font-display-xl text-headline-lg text-primary mb-1">0.1ms</div>
+<div class="font-label-mono text-xs uppercase text-on-tertiary-fixed-variant">Latency</div>
+</div>
+<div>
+<div class="font-display-xl text-headline-lg text-primary mb-1">5000mAh</div>
+<div class="font-label-mono text-xs uppercase text-on-tertiary-fixed-variant">Monster Cell</div>
+</div>
+<div>
+<div class="font-display-xl text-headline-lg text-primary mb-1">GEN 2</div>
+<div class="font-label-mono text-xs uppercase text-on-tertiary-fixed-variant">Neural Tech</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 px-margin-desktop mt-stack-lg bg-surface-container-highest border-t-4 border-primary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-7xl mx-auto mb-12">
+<div class="md:col-span-2">
+<h4 class="font-headline-md text-headline-md text-primary font-black mb-4">MOBILE MONSTERS</h4>
+<p class="font-body-md text-on-tertiary-fixed-variant max-w-xs">The premier destination for high-performance mobile tech and gaming peripherals.</p>
+</div>
+<div>
+<h5 class="font-label-mono text-primary mb-4 uppercase">Direct Links</h5>
+<ul class="space-y-2">
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-label-mono" href="#">Privacy</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-label-mono" href="#">Terms</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-label-mono" href="#">Support</a></li>
+<li><a class="text-on-tertiary-fixed-variant hover:text-primary transition-colors font-label-mono" href="#">Store Locator</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-mono text-primary mb-4 uppercase">Social Stream</h5>
+<div class="flex gap-4">
+<div class="w-10 h-10 bg-surface-container border border-primary/20 flex items-center justify-center hover:bg-primary/20 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface">share</span>
+</div>
+<div class="w-10 h-10 bg-surface-container border border-primary/20 flex items-center justify-center hover:bg-primary/20 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface">rss_feed</span>
+</div>
+<div class="w-10 h-10 bg-surface-container border border-primary/20 flex items-center justify-center hover:bg-primary/20 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-on-surface">chat</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant/10 pt-8 text-center">
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant uppercase">© 2024 MOBILE MONSTERS. UNLEASH THE BEAST.</p>
+</div>
+</footer>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.card-container').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateY = ((x - centerX) / centerX) * 10;
+                const rotateX = ((centerY - y) / centerY) * 10;
+                
+                const content = card.querySelector('.preserve-3d');
+                content.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                const content = card.querySelector('.preserve-3d');
+                content.style.transform = `rotateY(0deg) rotateX(0deg)`;
+            });
+        });
+
+        // Sticky Nav logic - simple tonal shift
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-surface/95', 'shadow-[0_10px_30px_rgba(0,0,0,0.8)]');
+                header.classList.remove('bg-surface/80');
+            } else {
+                header.classList.add('bg-surface/80');
+                header.classList.remove('bg-surface/95', 'shadow-[0_10px_30px_rgba(0,0,0,0.8)]');
+            }
+        });
+    </script>
+</body></html>
